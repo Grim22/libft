@@ -6,13 +6,13 @@
 /*   By: bbrunet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:07:55 by bbrunet           #+#    #+#             */
-/*   Updated: 2019/12/05 11:30:50 by bbrunet          ###   ########.fr       */
+/*   Updated: 2019/12/13 17:09:16 by bbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_charnum(long int n)
+static int	ft_charnum(long long int n)
 {
 	int	count;
 
@@ -29,7 +29,7 @@ static int	ft_charnum(long int n)
 	return (count);
 }
 
-char		*ft_itoa(long int nlong)
+char		*ft_itoa(long long int nlong)
 {
 	char		*p;
 	int			i;
