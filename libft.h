@@ -6,7 +6,7 @@
 /*   By: bbrunet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 16:58:10 by bbrunet           #+#    #+#             */
-/*   Updated: 2019/12/13 17:08:29 by bbrunet          ###   ########.fr       */
+/*   Updated: 2020/02/03 14:28:14 by bbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,26 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
+
+
+// GNL
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
+
+typedef struct	s_fd
+{
+	int				fd;
+	char			*str;
+	struct s_fd		*next;
+}				t_fd;
+
+int				get_next_line(int fd, char **line);
+int				f_line(char *str);
+int				ft_read(char **buf, int fd);
+int				ft_len(char *str);
+int				ft_cat(char **str, char *buf, int ret);
+int				ft_clean(int ret, t_fd **begin, t_fd **elem, int error);
 
 #endif
