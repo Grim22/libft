@@ -110,11 +110,13 @@ ret != -1 && (cat = ft_cat(&elem->str, buf, ret)) != -1)
 		fd = fd + 0;
 	if (ret == -1 || cat == -1 || fd < 0 || !line)
 		return (ft_clean(-1, &begin, &elem, 0));
-	if (elem->str == 0 || (!ret && !(f_line(elem->str))))
+	if (elem->str && !ret && !(f_line(elem->str)))
 	{
 		cat = ft_sub(line, elem->str, 0, ft_len(elem->str));
-		return (ft_clean(0, &begin, &elem, cat));
+		return (ft_clean(1, &begin, &elem, cat));
 	}
+	if (elem->str == 0)
+		return(0);
 	if (ft_cut(&elem->str, line) == -1)
 		return (ft_clean(-1, &begin, &elem, 0));
 	return (1);
