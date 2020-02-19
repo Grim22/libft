@@ -19,8 +19,6 @@ static int	ft_charnum(unsigned long long n)
 	if (n == 0)
 		return (1);
 	count = 0;
-	if (n < 0)
-		count++;
 	while (n)
 	{
 		n = n / 10;
@@ -40,11 +38,6 @@ char		*ft_itoa_u(unsigned long long nlong)
 		return (NULL);
 	if (nlong == 0)
 		p[0] = '0';
-	if (nlong < 0)
-	{
-		p[0] = '-';
-		nlong = (nlong * -1);
-	}
 	i = num - 1;
 	while (nlong)
 	{
