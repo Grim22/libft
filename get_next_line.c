@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbrunet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: bbrunet <bbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:50:49 by bbrunet           #+#    #+#             */
-/*   Updated: 2020/02/03 14:28:13 by bbrunet          ###   ########.fr       */
+/*   Updated: 2020/02/24 12:28:58 by bbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ ret != -1 && (cat = ft_cat(&elem->str, buf, ret)) != -1)
 		return (ft_clean(1, &begin, &elem, cat));
 	}
 	if (elem->str == 0)
-		return(0);
+		return (0);
 	if (ft_cut(&elem->str, line) == -1)
 		return (ft_clean(-1, &begin, &elem, 0));
 	return (1);
