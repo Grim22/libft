@@ -6,12 +6,11 @@
 /*   By: grim <grim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 23:35:07 by bbrunet           #+#    #+#             */
-/*   Updated: 2020/06/23 18:18:43 by grim             ###   ########.fr       */
+/*   Updated: 2020/06/23 18:39:16 by grim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_num(const char *str, char c)
 {
@@ -20,14 +19,12 @@ static int	ft_num(const char *str, char c)
 
 	i = 0;
 	count = 0;
-	if (str[i] == 0)
-		return(1);
 	while (str[i])
 	{
 		while (str[i] == c && str[i])
 			i++;
-		// if (str[i] == 0)
-		// 	return (count);
+		if (str[i] == 0)
+			return (count);
 		while (str[i] != c && str[i])
 			i++;
 		count++;
@@ -119,11 +116,12 @@ char		**ft_split(const char *s, char c)
 	ptab[num] = 0;
 	return (ptab);
 }
+
 // int main()
 // {
 // 	char **s;
 
-// 	s = ft_split("abc", ' ');
+// 	s = ft_split("  ", ' ');
 // 	int i = 0;
 // 	while (s[i])
 // 	{
