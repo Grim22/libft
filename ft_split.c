@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbrunet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: grim <grim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 23:35:07 by bbrunet           #+#    #+#             */
-/*   Updated: 2019/11/14 10:47:14 by bbrunet          ###   ########.fr       */
+/*   Updated: 2020/06/23 18:11:36 by grim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_num(const char *str, char c)
 {
@@ -19,12 +20,14 @@ static int	ft_num(const char *str, char c)
 
 	i = 0;
 	count = 0;
+	if (str[i] == 0)
+		return(1);
 	while (str[i])
 	{
 		while (str[i] == c && str[i])
 			i++;
-		if (str[i] == 0)
-			return (count);
+		// if (str[i] == 0)
+		// 	return (count);
 		while (str[i] != c && str[i])
 			i++;
 		count++;
@@ -103,6 +106,7 @@ char		**ft_split(const char *s, char c)
 	if (s == 0)
 		return (NULL);
 	num = ft_num(s, c);
+	printf("num: %d\n", num);
 	if (!(ptab = malloc((num + 1) * sizeof(*ptab))))
 		return (0);
 	i = 0;
@@ -116,3 +120,16 @@ char		**ft_split(const char *s, char c)
 	ptab[num] = 0;
 	return (ptab);
 }
+// int main()
+// {
+// 	char **s;
+
+// 	s = ft_split("abc", ' ');
+// 	int i = 0;
+// 	while (s[i])
+// 	{
+// 		printf("i: %d\n", i);
+// 		printf("str: %s\n", s[i]);
+// 		i++;
+// 	}
+// }
