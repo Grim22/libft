@@ -6,7 +6,7 @@
 /*   By: grim <grim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 23:35:07 by bbrunet           #+#    #+#             */
-/*   Updated: 2020/06/23 18:11:36 by grim             ###   ########.fr       */
+/*   Updated: 2020/06/23 18:18:43 by grim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ char		**ft_split(const char *s, char c)
 	if (s == 0)
 		return (NULL);
 	num = ft_num(s, c);
-	printf("num: %d\n", num);
 	if (!(ptab = malloc((num + 1) * sizeof(*ptab))))
 		return (0);
 	i = 0;
