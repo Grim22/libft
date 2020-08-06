@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbrunet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: bbrunet <bbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 10:07:55 by bbrunet           #+#    #+#             */
-/*   Updated: 2019/12/16 13:32:08 by bbrunet          ###   ########.fr       */
+/*   Updated: 2020/08/06 18:47:07 by bbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_charnum(long long int n)
+static int	ft_charnum(long int n)
 {
 	int	count;
 
@@ -29,7 +29,7 @@ static int	ft_charnum(long long int n)
 	return (count);
 }
 
-char		*ft_itoa(long long int nlong)
+char		*ft_itoa(long int nlong)
 {
 	char		*p;
 	int			i;

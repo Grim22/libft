@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julnolle <julnolle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bbrunet <bbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 14:57:23 by grim              #+#    #+#             */
-/*   Updated: 2020/08/06 09:16:14 by julnolle         ###   ########.fr       */
+/*   Created: 2019/12/18 18:44:39 by julnolle          #+#    #+#             */
+/*   Updated: 2020/08/06 18:37:53 by bbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_strjoin_back(char *back, char **src)
 {
-	size_t i;
+	char *tmp;
 
-	if (s1 == NULL || s2 == NULL)
-		return (-1);
-	i = 0;
-	while (s1[i] != 0 && s2[i] != 0 && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	if (back == NULL || src == NULL)
+		return ;
+	if (*src)
+	{
+		tmp = ft_strdup(*src);
+		free(*src);
+		*src = NULL;
+	}
+	else
+		tmp = ft_strdup("");
+	*src = ft_strjoin(tmp, back);
+	free(tmp);
+	tmp = NULL;
 }

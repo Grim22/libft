@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grim <grim@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: bbrunet <bbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 16:58:10 by bbrunet           #+#    #+#             */
-/*   Updated: 2020/06/23 14:58:34 by grim             ###   ########.fr       */
+/*   Updated: 2020/08/06 18:46:07 by bbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,28 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define AGAIN		1
+# define SUCCESS	0
+# define FAILURE	-1
+# define TRUE		1
+# define FALSE		0
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
 typedef struct	s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct	s_fd
+{
+	int			fd;
+	char		*str;
+	struct s_fd	*next;
+}				t_fd;
 
 int				ft_isalpha(int c);
 char			*ft_inter(char *a, char *b);
@@ -56,8 +73,8 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
-char			*ft_itoa(long long int n);
-char			*ft_itoa_u(unsigned long long n);
+char			*ft_itoa(long int n);
+char			*ft_itoa_u(unsigned long n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
@@ -65,7 +82,7 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
-int				ft_lstsize(t_list *lst);
+size_t			ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
@@ -75,24 +92,17 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
 void			ft_swap_i(int *a, int *b);
 void			ft_swap_f(float *a, float *b);
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
-# endif
-
-typedef struct	s_fd
-{
-	int			fd;
-	char		*str;
-	struct s_fd	*next;
-}				t_fd;
-
+char			*ft_strcat(char *s1, const char *s2);
+void			ft_strjoin_back(char *back, char **src);
+void			ft_str_free(char **str);
+char			*ft_str_del_1_sur_2(char *a);
+int				ft_isalnum_str(char *str);
+char			**ft_split_wp(char const *str);
 int				get_next_line(int fd, char **line);
 int				f_line(char *str);
 int				ft_read(char **buf, int fd);
 int				ft_len(char *str);
 int				ft_cat(char **str, char *buf, int ret);
 int				ft_clean(int ret, t_fd **begin, t_fd **elem, int error);
-char			*ft_str_del_1_sur_2(char *a);
 
 #endif
